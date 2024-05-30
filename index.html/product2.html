@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produktseite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .product-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .product-description {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .product-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .quantity-selector {
+            margin-right: 10px;
+            font-size: larger;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        .buy-button {
+            padding: 10px 30px;
+            background-color: #de1d5d;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        .buy-button:hover {
+            background-color: #c01a51;
+        }
+        .product-details p {
+            margin-bottom: 18px;
+        }
+        .additional-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .additional-image {
+            margin: 10px;
+        }
+        .additional-image img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 5px;
+        }
+        h6 {
+            color: #de1d5d;
+            font-size: large;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-top: 38px;
+        }
+        .loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .loading-dots {
+            display: flex;
+            justify-content: space-around;
+            width: 60px;
+        }
+        .loading-dots div {
+            width: 14px;
+            height: 14px;
+            background-color: #de1d5d;
+            border-radius: 50%;
+            animation: bounce 0.9s infinite;
+        }
+        .loading-dots div:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .loading-dots div:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        .v {
+            color: rgb(118, 118, 118);
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .h3 {
+            font-size: smaller;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .link {
+            color: rgb(4, 4, 148);
+            border: 1.2px solid black;
+            border-radius: 12px;
+            padding: 6px;
+            font-size: smaller;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .x {
+            margin-top: 30px;
+            margin-bottom: 35px;
+        }
+        .altercheck {
+            color: #de1d5d;
+            font-size: smaller;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <div class="product-image">
+            <img src="images.png" alt="Produktbild">
+        </div>
+        <h2 class="product-title">Odsmt HCL</h2>
+        <p class="product-description">O-Desmethyltramadol - Hydrochloride</p>
+        <div class="product-details">
+            <div class="quantity-selector">
+                <label for="quantity">Menge:</label>
+                <select id="quantity" onchange="updatePrice()">
+                    <option value="1">250mg</option>
+                    <option value="2">500mg</option>
+                    <option value="3">1g</option>
+                    <option value="4">2g</option>
+                    <option value="5">3g</option>
+                </select>
+            </div>
+            <h6 id="price">14,99 Euro</h6>
+        </div>
+        
+        <button class="buy-button" onclick="showLoading()">Jetzt kaufen</button>
+        <div class="product-specs">
+            <h3><div>  <strong> Dieses Produkt ist nur für den Forschungs- und Entwicklungsgebrauch bestimmt, nicht für Drogen-, Haushalts- oder andere Zwecke.</strong></div></h3>
+            <p class="v"> Lieferzeit Werktage: 1-2 Werktage</p>
+            <div class="x">
+                <p><u>Detailierte Produktbeschreibung</u></p>
+                <p><strong>Chemische Informationen:</strong></p>
+                <p>O–DMST (O–Desmethyltramadol) ist ein aktiver Metabolit von Tramadol, welcher durch das Enzym Cytochrom2D6 umgewandelt wird. Das (+)-O-DSMT (oder (1R,2R) O-DSMT) –Enantiomer ist ein G-Protein–basierter Agonist am μ-Opioid–Rezeptor (MOR), mit niedriger Selektivität zu den DOR (d-Opioid-Rezeptor) und KOR (k-Opioid-Rezeptor). (-)-O-DSMT (oder (1S,2S) O-DSMT) ist ein Norepinephrin–Wiederaufnahmehemmer.</p>
+                <p>Des Weiteren ist ODSMT ein 5-HT2C–Antagonist. Inhibitation des 5-HT2C Rezeptors führt zu einer Kaskade an Signalübertragungen.</p>
+                <p>O–Desmethyltramadol wird durch Cytochrom 3A4 und 2B6 zu einem weiteren aktiven Metaboliten N,O–Didesmethyltramadol enzymatisch umgewandelt.</p>
+                <p>ODL-Pharma bietet das Racemat in der HCL–Form an.</p>
+            </div>
+            <p><strong>Anwendung:</strong> Diese Chemikalie ist für den Einsatz in einer Vielzahl von GC/MS- oder LC/MS-Testanwendungen geeignet.</p>
+            <p class="link"><strong><u>Weitere technische Spezifikationen</u></strong></p>
+        </div>
+        <div class="altercheck">ALTERSKONTROLLE: Dieses Produkt ist ab 18+ Jahren erhältlich. Sollten sie in ihrem Land als nicht Volljährig zählen, so wird ihnen nichts verkauft.</div>
+    </div>
+
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <script>
+        function showLoading() {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = 'checkout1.html';
+            }, 3000); // 3 Sekunden Ladezeit simuliert
+        }
+
+        function updatePrice() {
+            const quantity = document.getElementById('quantity').value;
+            const price = 14.99 + (quantity - 1) * 15;
+            document.getElementById('price').innerText = price.toFixed(2) + ' Euro';
+        }
+    </script>
+</body>
+</html>

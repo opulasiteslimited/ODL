@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produktseite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .product-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .product-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .product-description {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-details {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .quantity-selector {
+            margin-right: 10px;
+            font-size: larger;
+        }
+        .buy-button {
+            padding: 10px 30px;
+            background-color: #de1d5d;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .buy-button:hover {
+            background-color: #c01a51;
+        }
+        .product-details p {
+            margin: 5px 0;
+        }
+        .additional-images {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .additional-image {
+            margin: 10px;
+        }
+        .additional-image img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 5px;
+        }
+        h6{
+            color: #de1d5d;
+            font-size: large;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <div class="product-image">
+            <img src="images.png" alt="Produktbild">
+        </div>
+        <h2 class="product-title">Odsmt HCL
+        </h2>
+        <p class="product-description">O-Desmethyltramadol - Hydrochloride </p>
+        <div class="product-details">
+            <div class="quantity-selector">
+                <label for="quantity">Menge:</label>
+                <select id="quantity">
+                    <option value="1">250mg</option>
+                    <option value="2">500mg</option>
+                    <option value="3">1g</option>
+                    <option value="4">2g</option>
+                    <option value="5">3g</option>
+                </select>
+            </div>
+            
+            <h6>14,99 Euro</h6>
+        </div>
+        <button class="buy-button">Jetzt kaufen</button>
+        
+        <div class="product-specs">
+            <h3>Zusätzliche Informationen</h3>
+            <p>Detailierte Produktbeschreibung hier.</p>
+            <p>Weitere technische Spezifikationen hier.</p>
+        </div>
+        <div class="additional-images">
+            <div class="additional-image">
+                <img src="additional-image1.jpg" alt="Zusätzliches Bild 1">
+            </div>
+            <div class="additional-image">
+                <img src="additional-image2.jpg" alt="Zusätzliches Bild 2">
+            </div>
+            <div class="additional-image">
+                <img src="additional-image3.jpg" alt="Zusätzliches Bild 3">
+            </div>
+            <!-- Weitere zusätzliche Bilder hier -->
+        </div>
+    </div>
+</body>
+</html>

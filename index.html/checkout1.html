@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Seite</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        .checkout-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input[type="text"], input[type="email"], select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group-inline {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .form-group-inline .form-group {
+            width: 48%;
+        }
+
+        .form-group-checkbox {
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group-checkbox input {
+            margin-right: 10px;
+        }
+
+        .payment-methods {
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .payment-method input {
+            margin-right: 10px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="checkout-container">
+    <h1>Checkout</h1>
+    <form action="confirm.html" method="POST">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Adresse</label>
+            <input type="text" id="address" name="address" required>
+        </div>
+        <div class="form-group-inline">
+            <div class="form-group">
+                <label for="city">Stadt</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <div class="form-group">
+                <label for="zip">PLZ</label>
+                <input type="text" id="zip" name="zip" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="country">Land</label>
+            <select id="country" name="country" required>
+                <option value="">Bitte wählen</option>
+                <option value="de">Deutschland</option>
+                <option value="at">Österreich</option>
+                <option value="ch">Schweiz</option>
+                <!-- Weitere Länder hier hinzufügen -->
+            </select>
+        </div>
+        <div class="form-group-checkbox">
+            <input type="checkbox" id="age-confirmation" name="age-confirmation" required>
+            <label for="age-confirmation">Ich bestätige, dass ich volljährig bin.</label>
+        </div>
+        <div class="payment-methods">
+            <h3>Zahlungsmethode</h3>
+            <div class="payment-method">
+                <input type="radio" id="bank-transfer" name="payment-method" value="bank-transfer" required>
+                <label for="bank-transfer">Banküberweisung</label>
+            </div>
+            <div class="payment-method">
+                <input type="radio" id="crypto" name="payment-method" value="crypto" required>
+                <label for="crypto">Kryptowährungen (BTC, ETH)</label>
+            </div>
+            <div class="payment-method">
+                <input type="radio" id="paysafecard" name="payment-method" value="paysafecard" required>
+                <label for="paysafecard">Paysafecard</label>
+            </div>
+        </div>
+        <button type="submit" class="btn">Weiter</button>
+    </form>
+</div>
+
+</body>
+</html>
