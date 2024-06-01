@@ -12,7 +12,7 @@
             background-color: #f0f0f0;
             overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-        
+
         header {
             width: 100%;
             padding: 10px 20px;
@@ -50,11 +50,14 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
+             /* Ensure the menu icon is on top */
         }
 
         .menu-line {
             width: 20px;
             height: 3px;
+            top: 17px;
+            right: 20px;
             background-color: white;
             margin: 2.4px 0;
             border-radius: 5px;
@@ -67,9 +70,9 @@
 
         .side-menu {
             position: fixed;
-            top: 60px; /* Align with header */
+            top: 0; /* Align with header */
             right: -70%;
-            width: 70%;
+            width: 50%;
             height: 100%;
             background-color: #333;
             color: white;
@@ -78,6 +81,7 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
+            /* Adjust padding to avoid overlap with header */
         }
 
         .side-menu.active {
@@ -267,9 +271,9 @@
         <a id="sidembtn4" href="#">FAQ</a>
     </div>
     <div class="shop-container">
-        <div id="opi"></div>
+       
 
-        <div class="product-card">
+        <div id="opi" class="product-card">
             <img src="images.png" alt="Produkt 1">
             <div class="product-info">
                 <h3>Produkt 1</h3>
@@ -287,7 +291,9 @@
             </div>
         </div>
 
-        <div class="product-card">
+       
+
+        <div id="mercedes" class="product-card">
             <img src="https://via.placeholder.com/300" alt="Produkt 3">
             <div class="product-info">
                 <h3>Produkt 3</h3>
@@ -295,8 +301,6 @@
                 <p class="price">€29,99</p>
             </div>
         </div>
-
-        <div id="mercedes"></div>
 
         <div class="product-card">
             <img src="https://via.placeholder.com/300" alt="Produkt 4">
@@ -325,9 +329,9 @@
             </div>
         </div>
 
-        <div id="stim"></div>
+       
 
-        <div class="product-card">
+        <div id="stim" class="product-card">
             <img src="https://via.placeholder.com/300" alt="Produkt 7">
             <div class="product-info">
                 <h3>Produkt 7</h3>
@@ -390,28 +394,28 @@
                 sideMenu.classList.remove('active');
             });
 
-            sidembtn1.addEventListener('click', function() {
+            document.getElementById('sidembtn1').addEventListener('click', function() {
                 loadingScreen.style.display = 'flex';
                 setTimeout(function() {
                     window.location.href = 'account.html';
                 }, 850);
             });
 
-            sidembtn2.addEventListener('click', function() {
+            document.getElementById('sidembtn2').addEventListener('click', function() {
                 loadingScreen.style.display = 'flex';
                 setTimeout(function() {
                     window.location.href = 'produkte.html';
                 }, 850);
             });
 
-            sidembtn3.addEventListener('click', function() {
+            document.getElementById('sidembtn3').addEventListener('click', function() {
                 loadingScreen.style.display = 'flex';
                 setTimeout(function() {
                     window.location.href = 'contact.html';
                 }, 850);
             });
 
-            sidembtn4.addEventListener('click', function() {
+            document.getElementById('sidembtn4').addEventListener('click', function() {
                 loadingScreen.style.display = 'flex';
                 setTimeout(function() {
                     window.location.href = 'account.html';
@@ -438,8 +442,5 @@
     </script>
 </body>
 </html>
-
-
-
 
 
