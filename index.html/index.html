@@ -6,29 +6,32 @@
     <title>Online Shop</title>
     <style>
         body, html {
-               
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-       
-
+        
         header {
+            width: 100%;
             padding: 10px 20px;
             background-color: #333;
             color: white;
-            width: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             height: 60px;
             border-bottom: 2.5px solid #e91e63;
+            position: relative;
         }
 
         h1 {
             font-size: 22px;
-            right: 41%;
+            margin: 0;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .icon-container {
@@ -47,8 +50,6 @@
             display: flex;
             flex-direction: column;
             cursor: pointer;
-            margin-right: 50px;
-            
         }
 
         .menu-line {
@@ -56,7 +57,6 @@
             height: 3px;
             background-color: white;
             margin: 2.4px 0;
-            margin-right: 46px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
@@ -67,13 +67,13 @@
 
         .side-menu {
             position: fixed;
-            top: 0;
-            right: -120%;
+            top: 60px; /* Align with header */
+            left: -70%;
             width: 70%;
             height: 100%;
             background-color: #333;
             color: white;
-            transition: right 0.3s ease;
+            transition: left 0.3s ease;
             z-index: 1000;
             display: flex;
             flex-direction: column;
@@ -81,13 +81,12 @@
         }
 
         .side-menu.active {
-            right: 0;
+            left: 0;
         }
 
         .side-menu .back-button {
             align-self: flex-end;
             cursor: pointer;
-            margin-right: 40px;
             margin-bottom: 40px;
         }
 
@@ -104,7 +103,7 @@
             border: 1px solid #f0f0f0;
             border-radius: 16px;
             font-size: 15px;
-            padding: 10px 10px;
+            padding: 10px 30px;
             transition: color 0.3s;
         }
 
@@ -114,8 +113,8 @@
 
         .shop-container {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             gap: 20px;
             padding: 20px;
             text-align: center;
@@ -127,7 +126,7 @@
             margin-top: 28px;
             margin-bottom: 27px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            max-width: 260px;
+            max-width: 300px;
             text-align: center;
             padding: 10px;
             cursor: pointer;
@@ -170,7 +169,7 @@
             }
 
             .product-card {
-                width: 54%;
+                width: 68%;
                 font-size: smaller;
                 margin-bottom: 18px;
             }
@@ -178,7 +177,6 @@
 
         .loading-screen {
             display: none;
-
             position: fixed;
             top: 0;
             left: 0;
@@ -193,7 +191,6 @@
         .loading-dots {
             display: flex;
             text-align: center;
-            position: fixed;
             justify-content: space-around;
             width: 60px;
         }
@@ -226,7 +223,6 @@
         footer {
             background-color: #333;
             color: white;
-            position: fixed;
             padding: 20px;
             text-align: center;
             position: relative;
@@ -271,7 +267,6 @@
         <a id="sidembtn4" href="#">FAQ</a>
     </div>
     <div class="shop-container">
-
         <div id="opi"></div>
 
         <div class="product-card">
@@ -349,7 +344,6 @@
                 <p class="price">€29,99</p>
             </div>
         </div>
-
     </div>
 
     <div class="loading-screen">
