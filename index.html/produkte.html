@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkte</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .product-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            max-width: 380px;
+            height: 520px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+        }
+
+        .back-button svg {
+            fill: #333;
+            width: 30px;
+            height: 30px;
+        }
+
+        .product-info{
+            margin-top: 124px;
+        }
+
+        .product-info h2 {
+            margin-bottom: 20px;
+        }
+
+        .product-info p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .product-buttons {
+            margin-top: 37px;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .product-buttons a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: 2px solid #333;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .product-buttons a:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        .loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-dots {
+            display: flex;
+            justify-content: space-around;
+            width: 60px;
+        }
+
+        .loading-dots div {
+            width: 14px;
+            height: 14px;
+            background-color: #333;
+            border-radius: 50%;
+            animation: bounce 0.9s infinite;
+        }
+
+        .loading-dots div:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loading-dots div:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="product-card">
+        <div class="back-button" id="backButton">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+        </div>
+        <div class="product-info">
+            <h2>Unsere Produkte</h2>
+            <p>Wählen Sie eine Kategorie aus, um mehr zu erfahren:</p>
+        </div>
+        <div class="product-buttons">
+            <a href="index.html#opi">Opioide</a>
+            <a href="index.html#mercedes">Benzodiazepine</a>
+            <a href="index.html#stim">Stimulanzien</a>
+        </div>
+    </div>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const backButton = document.getElementById('backButton');
+            const loadingScreen = document.getElementById('loadingScreen');
+            const productButtons = document.querySelectorAll('.product-buttons a');
+
+            backButton.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'index.html';
+                }, 1000);
+            });
+
+            productButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    loadingScreen.style.display = 'flex';
+                    const target = this.getAttribute('href');
+                    setTimeout(function() {
+                        window.location.href = target;
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
