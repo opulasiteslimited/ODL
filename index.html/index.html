@@ -68,12 +68,12 @@
         .side-menu {
             position: fixed;
             top: 60px; /* Align with header */
-            left: -70%;
+            right: -70%;
             width: 70%;
             height: 100%;
             background-color: #333;
             color: white;
-            transition: left 0.3s ease;
+            transition: right 0.3s ease;
             z-index: 1000;
             display: flex;
             flex-direction: column;
@@ -81,7 +81,7 @@
         }
 
         .side-menu.active {
-            left: 0;
+            right: 0;
         }
 
         .side-menu .back-button {
@@ -382,6 +382,14 @@
                 }, 850);
             });
 
+            menu.addEventListener('click', function() {
+                sideMenu.classList.toggle('active');
+            });
+
+            backButton.addEventListener('click', function() {
+                sideMenu.classList.remove('active');
+            });
+
             sidembtn1.addEventListener('click', function() {
                 loadingScreen.style.display = 'flex';
                 setTimeout(function() {
@@ -408,14 +416,6 @@
                 setTimeout(function() {
                     window.location.href = 'account.html';
                 }, 850);
-            });
-
-            menu.addEventListener('click', function() {
-                sideMenu.classList.toggle('active');
-            });
-
-            backButton.addEventListener('click', function() {
-                sideMenu.classList.remove('active');
             });
 
             // Highlight card in the center of the viewport
