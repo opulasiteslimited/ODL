@@ -114,8 +114,26 @@
             background-color: #921044;
         }
 
-        .age-confirmation{
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 3px solid rgba(0, 0, 0, 0.3);
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .warning {
             color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: none;
         }
 
     </style>
@@ -124,7 +142,7 @@
 
 <div class="checkout-container">
     <h1>Checkout</h1>
-    <form id="checkoutForm" action="confirm.html" method="POST">
+    <form id="checkoutForm" action="javascript:void(0);">
         <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
@@ -180,7 +198,9 @@
                 <label for="applepay">Apple Pay</label>
             </div>
         </div>
-        <button type="submit" id="myButton" class="btn" disabled> <strong>weiter</strong></button>
+        <div class="warning" id="warning">Alle Felder müssen ausgefüllt sein!</div>
+        <button type="button" id="myButton" class="btn" disabled> <strong>weiter</strong></button>
+        <div class="loading" id="loading" style="display: none;"></div>
     </form>
 </div>
 
@@ -190,6 +210,8 @@
         const submitButton = document.getElementById('myButton');
         const requiredFields = form.querySelectorAll('input[required], select[required]');
         const paymentMethods = form.querySelectorAll('input[name="payment-method"]');
+        const warning = document.getElementById('warning');
+        const loading = document.getElementById('loading');
 
         form.addEventListener('input', () => {
             let allFilled = true;
@@ -208,8 +230,36 @@
 
             if (allFilled && paymentSelected) {
                 submitButton.disabled = false;
+                warning.style.display = 'none';
             } else {
                 submitButton.disabled = true;
+            }
+        });
+
+        submitButton.addEventListener('click', () => {
+            let allFilled = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value) {
+                    allFilled = false;
+                }
+            });
+
+            let paymentSelected = false;
+            paymentMethods.forEach(method => {
+                if (method.checked) {
+                    paymentSelected = true;
+                }
+            });
+
+            if (allFilled && paymentSelected) {
+                submitButton.style.display = 'none';
+                loading.style.display = 'block';
+                setTimeout(() => {
+                    window.location.href = 'checkout2.html';
+                }, 2000);
+            } else {
+                warning.style.display = 'block';
             }
         });
     });

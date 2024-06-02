@@ -30,7 +30,7 @@
             font-size: 22px;
             margin: 0;
             position: absolute;
-            left: 50%;
+            left: 44.7%;
             transform: translateX(-50%);
         }
 
@@ -75,6 +75,7 @@
             align-items: flex-start;
             padding-top: 60px;
             transition: right 0.3s ease;
+            z-index: 1001; /* Ensure it is above other content */
         }
 
         .side-menu.active {
@@ -241,6 +242,7 @@
     </header>
     
     <div class="side-menu" id="sideMenu">
+        <button id="backButton">Zurück</button>
         <button id="sidembtn1">Account</button>
         <button id="sidembtn2">Produkte</button>
         <button id="sidembtn3">Kontakt</button>
@@ -340,13 +342,14 @@
             const menu = document.getElementById('menu');
             const sideMenu = document.getElementById('sideMenu');
             const sidemBtns = document.querySelectorAll('.side-menu button');
+            const backButton = document.getElementById('backButton');
 
             productCards.forEach((card, index) => {
                 card.addEventListener('click', function() {
                     loadingScreen.style.display = 'flex';
                     setTimeout(function() {
                         window.location.href = 'product' + (index + 1) + '.html';
-                    }, 1000);
+                    }, 800);
                 });
             });
 
@@ -357,19 +360,51 @@
                 }, 850);
             });
 
+
+
+
+
+            sidembtn1.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'account.html';
+                }, 850);
+            });
+
+            sidembtn2.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'produkte.html';
+                }, 850);
+            });
+
+            sidembtn3.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'contact.html';
+                }, 850);
+            });
+
+            sidembtn4.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'datenschutz.html';
+                }, 850);
+            });
+
+            
+
+
+
             menu.addEventListener('click', function() {
                 sideMenu.classList.toggle('active');
             });
 
-            sidemBtns.forEach((btn, index) => {
-                btn.addEventListener('click', function() {
-                    loadingScreen.style.display = 'flex';
-                    setTimeout(function() {
-                        let urls = ['account.html', 'produkte.html', 'contact.html', 'datenschutz.html'];
-                        window.location.href = urls[index];
-                    }, 850);
-                });
+            backButton.addEventListener('click', function() {
+                sideMenu.classList.remove('active');
             });
+
+           
 
             // Highlight card in the center of the viewport
             window.addEventListener('scroll', function() {
@@ -391,5 +426,6 @@
     </script>
 </body>
 </html>
+
 
 
