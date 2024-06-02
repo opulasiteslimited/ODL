@@ -12,12 +12,12 @@
             background-color: #f0f0f0;
         }
         .product-container {
-            max-width: 800px;
+            max-width: 348px;
             margin: 50px auto;
             background-color: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
         }
         .product-image {
             text-align: center;
@@ -52,13 +52,14 @@
         }
         .buy-button {
             padding: 10px 30px;
-            background-color: #de1d5d;
+            background-color: #d11f5a;
             border: none;
             color: white;
+            margin-bottom: 28px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-size: 14.4px;
             border-radius: 12px;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -66,8 +67,14 @@
             margin: 0 auto;
         }
         .buy-button:hover {
-            background-color: #c01a51;
+            background-color: #a91546;
         }
+
+
+.product-specs{
+    margin-top: 30px;
+}
+
         .product-details p {
             margin-bottom: 18px;
         }
@@ -98,7 +105,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgb(255, 255, 255);
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -171,17 +178,17 @@
             <div class="quantity-selector">
                 <label for="quantity">Menge:</label>
                 <select id="quantity" onchange="updatePrice()">
-                    <option value="1">250mg</option>
-                    <option value="2">500mg</option>
-                    <option value="3">1g</option>
-                    <option value="4">2g</option>
-                    <option value="5">3g</option>
+                    <option value="1">250mg Odsmt</option>
+                    <option value="2">500mg Odsmt</option>
+                    <option value="3">1g Odsmt</option>
+                    <option value="4">2g Odsmt</option>
+                    <option value="5">3g Odsmt</option>
                 </select>
             </div>
-            <h6 id="price">14,99 Euro</h6>
+            <h6 id="price">  <u>  14,99 Euro </u> </h6>
         </div>
         
-        <button class="buy-button" onclick="showLoading()">Jetzt kaufen</button>
+        <button class="buy-button" onclick="showLoading()"> <strong>Jetzt kaufen  </strong> </button>
         <div class="product-specs">
             <h3><div>  <strong> Dieses Produkt ist nur für den Forschungs- und Entwicklungsgebrauch bestimmt, nicht für Drogen-, Haushalts- oder andere Zwecke.</strong></div></h3>
             <p class="v"> Lieferzeit Werktage: 1-2 Werktage</p>
@@ -213,7 +220,7 @@
             loadingScreen.style.display = 'flex';
             setTimeout(() => {
                 window.location.href = 'checkout1.html';
-            }, 3000); // 3 Sekunden Ladezeit simuliert
+            }, 810); // 3 Sekunden Ladezeit simuliert
         }
 
         function updatePrice() {

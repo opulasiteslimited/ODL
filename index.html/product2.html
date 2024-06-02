@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -12,12 +13,12 @@
             background-color: #f0f0f0;
         }
         .product-container {
-            max-width: 800px;
+            max-width: 348px;
             margin: 50px auto;
             background-color: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
         }
         .product-image {
             text-align: center;
@@ -52,13 +53,14 @@
         }
         .buy-button {
             padding: 10px 30px;
-            background-color: #de1d5d;
+            background-color: #d11f5a;
             border: none;
             color: white;
+            margin-bottom: 28px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-size: 14.4px;
             border-radius: 12px;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -66,8 +68,14 @@
             margin: 0 auto;
         }
         .buy-button:hover {
-            background-color: #c01a51;
+            background-color: #a91546;
         }
+
+
+.product-specs{
+    margin-top: 30px;
+}
+
         .product-details p {
             margin-bottom: 18px;
         }
@@ -98,7 +106,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(255, 255, 255);
+            background-color: rgb(255, 255, 255);
             justify-content: center;
             align-items: center;
             z-index: 1000;
@@ -158,40 +166,47 @@
             margin-top: 20px;
             margin-bottom: 20px;
         }
+        .c {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border: 1px solid royalblue;
+            border-radius: 12px;
+            padding: 10px 10px;
+        }
     </style>
 </head>
 <body>
     <div class="product-container">
         <div class="product-image">
-            <img src="images.png" alt="Produktbild">
+            <img src="Unknown.png" alt="Produktbild">
         </div>
-        <h2 class="product-title">Odsmt HCL</h2>
-        <p class="product-description">O-Desmethyltramadol - Hydrochloride</p>
+        <h2 class="product-title">Avizafon HCL</h2>
+        <p class="product-description">  <p> Avizafon - Hydrochloride </p> <p> (2S)-2,6-diamino-N-{[(2-benzoyl-4-chlorophenyl)methylcarbamoyl]methyl}hexanamide </p> </p>
         <div class="product-details">
             <div class="quantity-selector">
                 <label for="quantity">Menge:</label>
                 <select id="quantity" onchange="updatePrice()">
-                    <option value="1">250mg</option>
-                    <option value="2">500mg</option>
-                    <option value="3">1g</option>
-                    <option value="4">2g</option>
-                    <option value="5">3g</option>
+                    <option value="1">250mg Avizafon</option>
+                    <option value="2">500mg Avizafon</option>
+                    <option value="3">1g Avizafon</option>
+                    <option value="4">2g Avizafon</option>
+                    <option value="5">3g Avizafon</option>
                 </select>
             </div>
-            <h6 id="price">14,99 Euro</h6>
+            <h6 id="price">  <u>  14,99 Euro </u> </h6>
         </div>
         
-        <button class="buy-button" onclick="showLoading()">Jetzt kaufen</button>
+        <button class="buy-button" onclick="showLoading()"> <strong>Jetzt kaufen  </strong> </button>
         <div class="product-specs">
             <h3><div>  <strong> Dieses Produkt ist nur für den Forschungs- und Entwicklungsgebrauch bestimmt, nicht für Drogen-, Haushalts- oder andere Zwecke.</strong></div></h3>
             <p class="v"> Lieferzeit Werktage: 1-2 Werktage</p>
             <div class="x">
                 <p><u>Detailierte Produktbeschreibung</u></p>
                 <p><strong>Chemische Informationen:</strong></p>
-                <p>O–DMST (O–Desmethyltramadol) ist ein aktiver Metabolit von Tramadol, welcher durch das Enzym Cytochrom2D6 umgewandelt wird. Das (+)-O-DSMT (oder (1R,2R) O-DSMT) –Enantiomer ist ein G-Protein–basierter Agonist am μ-Opioid–Rezeptor (MOR), mit niedriger Selektivität zu den DOR (d-Opioid-Rezeptor) und KOR (k-Opioid-Rezeptor). (-)-O-DSMT (oder (1S,2S) O-DSMT) ist ein Norepinephrin–Wiederaufnahmehemmer.</p>
-                <p>Des Weiteren ist ODSMT ein 5-HT2C–Antagonist. Inhibitation des 5-HT2C Rezeptors führt zu einer Kaskade an Signalübertragungen.</p>
-                <p>O–Desmethyltramadol wird durch Cytochrom 3A4 und 2B6 zu einem weiteren aktiven Metaboliten N,O–Didesmethyltramadol enzymatisch umgewandelt.</p>
-                <p>ODL-Pharma bietet das Racemat in der HCL–Form an.</p>
+                <p> Avizafon auch ((2S)-2,6-diamino-N-{[(2-benzoyl-4-chlorophenyl)methylcarbamoyl]methyl}hexanamide) ist stark hydroskopisch. ODL-Pharma bietet Avizafone als HCl Salz vakuumverpackt und mit Silikatpäkchen an, um dieses Problem zu reduzieren.</p>
+                <p class="c">Weitere Informationen derzeit in Bearbeitung...</p>
+
+                    
+
             </div>
             <p><strong>Anwendung:</strong> Diese Chemikalie ist für den Einsatz in einer Vielzahl von GC/MS- oder LC/MS-Testanwendungen geeignet.</p>
             <p class="link"><strong><u>Weitere technische Spezifikationen</u></strong></p>
@@ -213,7 +228,7 @@
             loadingScreen.style.display = 'flex';
             setTimeout(() => {
                 window.location.href = 'checkout1.html';
-            }, 1000); // 3 Sekunden Ladezeit simuliert
+            }, 810); // 3 Sekunden Ladezeit simuliert
         }
 
         function updatePrice() {

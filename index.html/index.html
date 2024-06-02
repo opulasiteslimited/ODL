@@ -30,7 +30,7 @@
             font-size: 22px;
             margin: 0;
             position: absolute;
-            left: 44.7%;
+            left: 45.4%;
             transform: translateX(-50%);
         }
 
@@ -250,43 +250,45 @@
     </div>
 
     <div class="shop-container">
-        <div id="opi" class="product-card">
+        <div id="product1" class="product-card">
             <img src="images.png" alt="Produkt 1">
             <div class="product-info">
-                <h3>Produkt 1</h3>
-                <p>Beschreibung des Produkts 1</p>
+                <h3>Odsmt</h3>
+                <p>
+                  O–Desmethyltramadol - Hydrochloride  
+                </p>
                 <p class="price">€19,99</p>
             </div>
         </div>
 
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300" alt="Produkt 2">
+        <div id="product2" class="product-card">
+            <img src="Unknown.png" alt="Produkt 2">
             <div class="product-info">
-                <h3>Produkt 2</h3>
-                <p>Beschreibung des Produkts 2</p>
-                <p class="price">€29,99</p>
+                <h3>Avizafon</h3>
+                <p>Avizafon - Hydrochloride</p>
+                <p class="price">€14,99</p>
             </div>
         </div>
 
-        <div id="mercedes" class="product-card">
-            <img src="https://via.placeholder.com/300" alt="Produkt 3">
+        <div id="product3" class="product-card">
+            <img src="images-2.png" alt="Produkt 3">
             <div class="product-info">
-                <h3>Produkt 3</h3>
+                <h3>Rilmazafon</h3>
                 <p>Beschreibung des Produkts 3</p>
-                <p class="price">€29,99</p>
+                <p class="price">€14,99</p>
             </div>
         </div>
 
-        <div class="product-card">
-            <img src="https://via.placeholder.com/300" alt="Produkt 4">
+        <div id="product4" class="product-card">
+            <img src="Desglycyl-Clonazafone.jpeg" alt="Produkt 4">
             <div class="product-info">
-                <h3>Produkt 4</h3>
-                <p>Beschreibung des Produkts 4</p>
-                <p class="price">€29,99</p>
+                <h3>Clonazafon</h3>
+                <p>Clonazafon - Hydrochloride</p>
+                <p class="price">€14,99</p>
             </div>
         </div>
 
-        <div class="product-card">
+        <div id="product5" class="product-card">
             <img src="https://via.placeholder.com/300" alt="Produkt 5">
             <div class="product-info">
                 <h3>Produkt 5</h3>
@@ -295,7 +297,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div id="product6" class="product-card">
             <img src="https://via.placeholder.com/300" alt="Produkt 6">
             <div class="product-info">
                 <h3>Produkt 6</h3>
@@ -304,7 +306,7 @@
             </div>
         </div>
 
-        <div id="stim" class="product-card">
+        <div id="product7" class="product-card">
             <img src="https://via.placeholder.com/300" alt="Produkt 7">
             <div class="product-info">
                 <h3>Produkt 7</h3>
@@ -313,7 +315,7 @@
             </div>
         </div>
 
-        <div class="product-card">
+        <div id="product8" class="product-card">
             <img src="https://via.placeholder.com/300" alt="Produkt 8">
             <div class="product-info">
                 <h3>Produkt 8</h3>
@@ -344,25 +346,12 @@
             const sidemBtns = document.querySelectorAll('.side-menu button');
             const backButton = document.getElementById('backButton');
 
-            productCards.forEach((card, index) => {
-                card.addEventListener('click', function() {
-                    loadingScreen.style.display = 'flex';
-                    setTimeout(function() {
-                        window.location.href = 'product' + (index + 1) + '.html';
-                    }, 800);
-                });
-            });
-
             accountIcon.addEventListener('click', function() {
                 loadingScreen.style.display = 'flex';
                 setTimeout(function() {
                     window.location.href = 'account.html';
                 }, 850);
             });
-
-
-
-
 
             sidembtn1.addEventListener('click', function() {
                 loadingScreen.style.display = 'flex';
@@ -392,10 +381,6 @@
                 }, 850);
             });
 
-            
-
-
-
             menu.addEventListener('click', function() {
                 sideMenu.classList.toggle('active');
             });
@@ -404,9 +389,68 @@
                 sideMenu.classList.remove('active');
             });
 
-           
+/*Produkte Seiten Verknüpfung*/
 
-            // Highlight card in the center of the viewport
+            product1.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'product1.html';
+                }, 700);
+            });
+
+            product2.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'product2.html';
+                }, 700);
+            });
+
+            product3.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'product3.html';
+                }, 700);
+            });
+
+            product4.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'product4.html';
+                }, 700);
+            });
+
+            product5.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'product5.html';
+                }, 700);
+            });
+
+            product6.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'product6.html';
+                }, 700);
+            });
+
+            product7.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'product7.html';
+                }, 700);
+            });
+
+            product8.addEventListener('click', function() {
+                loadingScreen.style.display = 'flex';
+                setTimeout(function() {
+                    window.location.href = 'product8.html';
+                }, 700);
+            });
+
+
+
+/* Produktcard Hervorhebung */
+
             window.addEventListener('scroll', function() {
                 let scrollPos = window.scrollY + window.innerHeight / 2;
 

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -12,12 +13,12 @@
             background-color: #f0f0f0;
         }
         .product-container {
-            max-width: 800px;
+            max-width: 348px;
             margin: 50px auto;
             background-color: white;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
         }
         .product-image {
             text-align: center;
@@ -35,36 +36,48 @@
         }
         .product-description {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
         .product-details {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
         .quantity-selector {
             margin-right: 10px;
             font-size: larger;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
         }
         .buy-button {
             padding: 10px 30px;
-            background-color: #de1d5d;
+            background-color: #d11f5a;
             border: none;
             color: white;
+            margin-bottom: 28px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 16px;
+            font-size: 14.4px;
             border-radius: 12px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            display: block;
+            margin: 0 auto;
         }
         .buy-button:hover {
-            background-color: #c01a51;
+            background-color: #a91546;
         }
+
+
+.product-specs{
+    margin-top: 30px;
+}
+
         .product-details p {
-            margin: 5px 0;
+            margin-bottom: 18px;
         }
         .additional-images {
             display: flex;
@@ -80,54 +93,161 @@
             height: auto;
             border-radius: 5px;
         }
-        h6{
+        h6 {
             color: #de1d5d;
             font-size: large;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            margin-top: 38px;
+        }
+        .loading-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .loading-dots {
+            display: flex;
+            justify-content: space-around;
+            width: 60px;
+        }
+        .loading-dots div {
+            width: 14px;
+            height: 14px;
+            background-color: #de1d5d;
+            border-radius: 50%;
+            animation: bounce 0.9s infinite;
+        }
+        .loading-dots div:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .loading-dots div:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+        .v {
+            color: rgb(118, 118, 118);
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .h3 {
+            font-size: smaller;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .link {
+            color: rgb(4, 4, 148);
+            border: 1.2px solid black;
+            border-radius: 12px;
+            padding: 6px;
+            font-size: smaller;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .x {
+            margin-top: 30px;
+            margin-bottom: 35px;
+        }
+        .altercheck {
+            color: #de1d5d;
+            font-size: smaller;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="product-container">
         <div class="product-image">
-            <img src="images.png" alt="Produktbild">
+            <img src="images-2.png" alt="Produktbild">
         </div>
-        <h2 class="product-title">Odsmt HCL
-        </h2>
-        <p class="product-description">O-Desmethyltramadol - Hydrochloride </p>
+        <h2 class="product-title">Rilmazafon hCL</h2>
+        <p class="product-description">  <p> Rilmazafon - Hydrochloride </p> <p>(1-[4-chloro-2-(2-chlorobenzoyl)phenyl]-5-[(glycylamino)methyl]-N,N-dimethyl-1H-1,2,4-triazole-3-carboxamide )</p> </p>
         <div class="product-details">
             <div class="quantity-selector">
                 <label for="quantity">Menge:</label>
-                <select id="quantity">
-                    <option value="1">250mg</option>
-                    <option value="2">500mg</option>
-                    <option value="3">1g</option>
-                    <option value="4">2g</option>
-                    <option value="5">3g</option>
+                <select id="quantity" onchange="updatePrice()">
+                    <option value="1">60mg Rilmazafon</option>
+                    <option value="2">150mg Rilmazafon</option>
+                    <option value="3">250mg Rilmazafon</option>
+                    <option value="4">350mg Odsmt</option>
+                    <option value="5">500mg Odsmt</option>
                 </select>
             </div>
-            
-            <h6>14,99 Euro</h6>
+            <h6 id="price">  <u>  14,99 Euro </u> </h6>
         </div>
-        <button class="buy-button">Jetzt kaufen</button>
         
+        <button class="buy-button" onclick="showLoading()"> <strong>Jetzt kaufen  </strong> </button>
         <div class="product-specs">
-            <h3>Zusätzliche Informationen</h3>
-            <p>Detailierte Produktbeschreibung hier.</p>
-            <p>Weitere technische Spezifikationen hier.</p>
+            <h3><div>  <strong> Dieses Produkt ist nur für den Forschungs- und Entwicklungsgebrauch bestimmt, nicht für Drogen-, Haushalts- oder andere Zwecke.</strong></div></h3>
+            <p class="v"> Lieferzeit Werktage: 1-2 Werktage</p>
+            <div class="x">
+                <p><u>Detailierte Produktbeschreibung</u></p>
+                <p><strong>Chemische Informationen:</strong></p>
+                <p>Rilmazafone (1-[4-chloro-2-(2-chlorobenzoyl)phenyl]-5-[(glycylamino)methyl]-N,N-dimethyl-1H-1,2,4-triazole-3-carboxamide )
+
+                    Rilmazafone hat selbst keine Wirkungen auf Benzodiazepin-Rezeptoren und fällt nicht unter das Neue-psychoaktive-Stoffe-Gesetz (NpSG) oder das Betäubungsmittelgesetz (BtMG), da es keine Benzodiazepin Grundstruktur enthält. Benzodiazepinrezeptoren sind spezifische Bindungsstellen für Benzodiazepine an GABAA-Rezeptoren (GABA-Rezeptoren). Benzodiazepine können sich wie Barbiturate, Antiepileptika oder Ethanol an GABAA-Rezeptoren im Zentralnervensystem binden und verstärken dadurch die hemmende Funktion GABAerger Neurone. </p>
+                    
+                     
+                    
+                    <p> <strong> Rilmazafone </strong>  besitzt ein Molekulargewicht von 475,33 Gramm pro Mol (freebase) und 511,79 Gramm pro Mol (HCl Salz). Rilmazafone ist kein Benzodiazepin und wird daher in mehreren Ländern, einschließlich der Vereinigten Staaten, nicht als solches reguliert.
+                    
+                     
+                    
+                    Rilmazafon weist keine eigenen Auswirkungen auf Benzodiazepinrezeptoren und produziert auch vor einer Metabolisierung keine psychoaktiven Wirkungen. Es wird es durch Aminopeptidaseenzyme  metabolisiert. Dabei wird das princiapl aktive Benzodiazepin 8-chlor-6-(2-chlorphenyl)-N,N-dimethyl-4H-1,2,4-triazolo [1,5-a][1,4]benzodiazepin-2-carboxamid gebildet.
+                    
+                     
+                    
+                    <p> Wie im molekularen Diagramm  zu sehen ist der Hauptmetabolit, eine Benzodiazepin-Ringstruktur (Rilmazolam) (d.h. einen Benzolring, der mit einem Diazepinring verschmolzen ist). Das unterscheidet die Verbindung von der Ausgangsverbindung (Rilmazafone), die keinen Diazepinring hat. </p>
+                    
+                    Wir bieten Rilmazafone in Pulverform an, damit eine fast exakte Menge an Rilmazafone immer gewährleistet ist. Das forschen wird dadurch günstiger und deutlich erleichtert.
+                    
+Auf Nachfrage stellen wir ein SDB bereit, welches unter anderem mögliche Gefahren, Lösungsmittel und den Siedepunkt enthält.</p>
+                    
+                    Das Pulver wird in einem Reinraum hergestellt, um mögliche Konterminationen in späteren GC/MS- oder LC/MS-Testanwendungen ausschließen zu können für einen klareren Bericht für eine einfachere Auswertung des NMR’s.
+                    
+
+            </div>
+            <p><strong>Anwendung:</strong> Diese Chemikalie ist für den Einsatz in einer Vielzahl von GC/MS- oder LC/MS-Testanwendungen geeignet.</p>
+            <p class="link"><strong><u>Weitere technische Spezifikationen</u></strong></p>
         </div>
-        <div class="additional-images">
-            <div class="additional-image">
-                <img src="additional-image1.jpg" alt="Zusätzliches Bild 1">
-            </div>
-            <div class="additional-image">
-                <img src="additional-image2.jpg" alt="Zusätzliches Bild 2">
-            </div>
-            <div class="additional-image">
-                <img src="additional-image3.jpg" alt="Zusätzliches Bild 3">
-            </div>
-            <!-- Weitere zusätzliche Bilder hier -->
+        <div class="altercheck">ALTERSKONTROLLE: Dieses Produkt ist ab 18+ Jahren erhältlich. Sollten sie in ihrem Land als nicht Volljährig zählen, so wird ihnen nichts verkauft.</div>
+    </div>
+
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-dots">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
+
+    <script>
+        function showLoading() {
+            const loadingScreen = document.getElementById('loading-screen');
+            loadingScreen.style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = 'checkout1.html';
+            }, 810); // 3 Sekunden Ladezeit simuliert
+        }
+
+        function updatePrice() {
+            const quantity = document.getElementById('quantity').value;
+            const price = 14.99 + (quantity - 1) * 15;
+            document.getElementById('price').innerText = price.toFixed(2) + ' Euro';
+        }
+    </script>
 </body>
 </html>
