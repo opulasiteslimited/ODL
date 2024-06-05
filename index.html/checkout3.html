@@ -27,13 +27,13 @@
             color: #000000;
             cursor: pointer;
             border-radius: 16px;
-            border: 1.2px solid black;
+            border: 1.8px solid black;
             padding: 10px;
         }
 
         .txt{
             text-align: center;
-            margin-top: 90px;
+            margin-top: 60px;
             
         }
 
@@ -75,7 +75,7 @@
             justify-content: center;
             align-items: center;
             margin: 20px auto;
-            animation: circleAppear 1s ease-in-out forwards;
+            animation: circleAppear 0.9s ease-in-out forwards;
             opacity: 0;
         }
 
@@ -101,15 +101,18 @@
 
         .heading-1 {
             font-size: 21px;
+            
             margin-top: 0;
             margin-bottom: 24px;
-            animation: heading1Appear 0.70s ease-in-out forwards;
+            animation: heading1Appear 0.60s ease-in-out forwards;
         }
 
         .heading-2 {
             font-size: 17px;
             margin-top: 25px;
-            animation: heading2Appear 1s ease-in-out forwards;
+            margin-left: 20px;
+            margin-right: 20px;
+            animation: heading2Appear 0.87s ease-in-out forwards;
             border: 1.4px solid #b40c44;
             box-shadow: 0 0 3px #900634;
             border-radius: 16px;
@@ -131,13 +134,16 @@
 </head>
 <body>
     <div class="card">
-        <div class="back-button" id="back-button">&#8592; Startseite</div>
+        <div class="back-button" id="back-button">&#8592; <strong> Startseite </strong> </div>
 
 <div class="txt">
 
         <h1 class="heading-1">Vielen dank! Ihre Bestellung wird bearbeitet</h1>
         <div class="circle">
             <div class="checkmark">✔</div>
+        </div>
+        <div class="orderinfocard">
+
         </div>
         <h2 class="heading-2"> <u>  Die Zahlungsauffoderung erhalten sie innerhalb der nächsten 24h per Email...  </u> </h2>
     </div>
@@ -163,15 +169,15 @@
 
             // Set up animations
             setTimeout(() => {
-                document.querySelector('.heading-1').style.opacity = '1';
+                document.querySelector('.heading-1').style.opacity = '2';
             }, 680);
 
             setTimeout(() => {
-                document.querySelector('.circle').style.opacity = '1';
+                document.querySelector('.circle').style.opacity = '2';
             }, 1500);
 
             setTimeout(() => {
-                document.querySelector('.heading-2').style.opacity = '1';
+                document.querySelector('.heading-2').style.opacity = '2';
             }, 750);
         });
     </script>
