@@ -33,7 +33,7 @@
 
         .txt{
             text-align: center;
-            margin-top: 60px;
+            margin-top: 37px;
             
         }
 
@@ -130,6 +130,29 @@
                 opacity: 1;
             }
         }
+
+        .horizontal-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .horizontal-line::before,
+        .horizontal-line::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #000;
+        }
+
+        .horizontal-line::before {
+            margin-right: 10px;
+        }
+
+        .horizontal-line::after {
+            margin-left: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -142,7 +165,7 @@
         <div class="circle">
             <div class="checkmark">✔</div>
         </div>
-        <div class="orderinfocard">
+        <div class="horizontal-line">
 
         </div>
         <h2 class="heading-2"> <u>  Die Zahlungsauffoderung erhalten sie innerhalb der nächsten 24h per Email...  </u> </h2>
