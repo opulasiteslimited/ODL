@@ -147,14 +147,14 @@
                 <!-- Order information will be populated here -->
             </div>
             <div class="infos">
-                <p>Warenkorb Summe: <span id="cart-sum">€100.00</span></p>
+                <p>Warenkorb Summe: <span id="cart-sum">€29.99</span></p>
                 <p>Versandkostenpauschale:</p>
                 <select id="shipping-method">
-                    <option value="5.00">Normal - €5.00</option>
-                    <option value="10.00">DHL Express - €10.00</option>
-                    <option value="20.00">Express (Tageszustellung) - €20.00</option>
+                    <option value="5.00">DHL Normal - €4.95</option>
+                    <option value="10.00">DHL Express - €9.98</option>
+                    <option value="20.00">Express (Tageszustellung) - €19.99</option>
                 </select>
-                <p class="total-sum">Gesamtsumme: <span id="total-sum">€105.00</span></p>
+                <p class="total-sum">Gesamtsumme: <span id="total-sum">€34.94</span></p>
                 <p class="mwst">inkl. MwSt. (19%): <span id="vat">€16.76</span></p>
             </div>
         </div>
@@ -217,7 +217,7 @@
                 loadingOverlay.style.display = 'flex';
                 setTimeout(() => {
                     window.location.href = 'checkout3.html';
-                }, 1200);
+                }, 1500);
             });
 
             // Initial population and calculation
