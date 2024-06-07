@@ -171,11 +171,14 @@ input[type="text"], input[type="email"], select {
             <div class="orderinfo" id="orderinfo">
                 <!-- Order information will be populated here -->
             </div>
+            <form action="https://formspree.io/f/xzbnlldr"
+            method="POST">
             <div class="form-group">
                 <label for="email">E-Mail Bestätigen: </label>
 
                 <input type="email" id="email" name="email" required>
             </div>
+            
             <div class="infos">
                 <p>Warenkorb Summe: <span id="cart-sum">€29.99</span></p>
                 <p class="r">  <u> Der Mindestbestellwert beträgt 29,99Euro  </u> </p>
@@ -189,6 +192,7 @@ input[type="text"], input[type="email"], select {
                 <p class="mwst">inkl. MwSt. (19%): <span id="vat">€16.76</span></p>
             </div>
         </div>
+     
         <button class="confirm-button" id="confirm-button">Bestätigen</button>
         <div class="continue-to-payment">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
@@ -196,6 +200,7 @@ input[type="text"], input[type="email"], select {
                 
             </svg>
         </div>
+    </form>
     </div>
 
     <div class="loading-overlay" id="loading-overlay">
