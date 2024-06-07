@@ -19,13 +19,13 @@
         .checkout-card {
             background-color: white;
             border-radius: 16px;
-            margin-top: 30px;
+            margin-top: 20px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             max-width: 300px;
             width: 90%;
             padding: 20px;
             text-align: center;
-            height: 560px;
+            height: 580px;
         }
 
         .checkout-card h1 {
@@ -37,7 +37,7 @@
             border-radius: 10px;
             padding: 15px;
             text-align: left;
-            height: 380px;
+            height: 425px;
             margin: 20px 0;
             display: flex;
             flex-direction: column;
@@ -87,7 +87,7 @@
             padding: 10px;
             width: 100%;
             border-radius: 16px;
-            margin-top: 24px;
+            margin-top: 14px;
             font-size: 16px;
             cursor: pointer;
         }
@@ -137,6 +137,31 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+ 
+
+.form-group{
+    font-size: smaller;
+   
+    
+}
+ 
+input[type="text"], input[type="email"], select {
+    margin-top: 7px;
+            width: 255px;
+            padding: 4px;
+            border: 1.2px solid #9a9999;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+
+
+
+.r{
+    font-size: smaller;
+    color: red;
+}
+
     </style>
 </head>
 <body>
@@ -146,11 +171,17 @@
             <div class="orderinfo" id="orderinfo">
                 <!-- Order information will be populated here -->
             </div>
+            <div class="form-group">
+                <label for="email">E-Mail Bestätigen: </label>
+
+                <input type="email" id="email" name="email" required>
+            </div>
             <div class="infos">
                 <p>Warenkorb Summe: <span id="cart-sum">€29.99</span></p>
+                <p class="r">  <u> Der Mindestbestellwert beträgt 29,99Euro  </u> </p>
                 <p>Versandkostenpauschale:</p>
                 <select id="shipping-method">
-                    <option value="5.00">DHL Normal - €4.95</option>
+                    <option value="5.00">DHL Normal (versichert) - €4.95</option>
                     <option value="10.00">DHL Express - €9.98</option>
                     <option value="20.00">Express (Tageszustellung) - €19.99</option>
                 </select>
@@ -183,10 +214,10 @@
 
             // Assuming these values come from checkout1.html
             const formData = {
-                name: "Max Mustermann",
-                address: "Musterstraße 1, 12345 Musterstadt",
-                productName: "Produkt XYZ",
-                quantity: 2
+                name: "******* *******",
+                address: "********** ***, ***** ****************",
+                productName: "Produkt ***** ***",
+                quantity: 1
             };
 
             function populateOrderInfo() {
