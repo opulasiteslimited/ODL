@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Shop</title>
     <style>
-
-        @media (max-width: 600px;) {
-            body{
-                flex-direction: column;
-            }
-        }
-        
         body, html {
             margin: 0;
             padding: 0;
@@ -19,8 +12,6 @@
             background-color: #f0f0f0;
             overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-
-    
 
         header {
             width: 100%;
@@ -41,6 +32,17 @@
             position: absolute;
             left: 45.4%;
             transform: translateX(-50%);
+           
+        }
+         
+        .time {
+            border: 2px solid black;
+            border-radius: 6px;
+            margin-top:13px;
+            font-size: 14px;
+            color: rgb(2, 2, 2);
+            text-align: center;
+            padding: 5px 10px;
         }
 
         .icon-container {
@@ -254,12 +256,15 @@
             </svg>
         </div>
         <h1> <u> ODL-Pharma </u> </h1>
+       
         <div class="menu-icon" id="menu">
             <div></div>
             <div></div>
             <div></div>
         </div>
     </header>
+
+    <div class="time">Von 16. Juni bis 26. August temporär offline!</div>
     
     <div class="side-menu" id="sideMenu">
         <button class="backButton" id="backButton">Zurück</button>
@@ -294,7 +299,7 @@
             <img src="images-2.png" alt="Produkt 3">
             <div class="product-info">
                 <h3>Rilmazafon</h3>
-                <p>Rilmazafon Hydrochloride</p>
+                <p>Beschreibung des Produkts 3</p>
                 <p class="price">€14,99</p>
             </div>
         </div>
@@ -480,7 +485,196 @@
             });
         });
     </script>
+
+
+
+
+
+
+
+
+<style>
+
+    .popup {
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        width: 220px;
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+    }
+    
+    .popup .stars {
+        display: flex;
+        gap: 2px;
+    }
+    
+    .popup .star {
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        background-color: #3CB371;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+ 
+    .popup .star-grey {
+        width: 26px;
+        height: 26px;
+        border-radius: 6px;
+        background-color: #bcbcbc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .popup .star::before, .popup .star-grey::before {
+        content: '★';
+        color: white;
+    }
+    
+    .popup .text {
+        margin-left: 10px;
+        font-size: 12px;
+    }
+    </style>
+    
+    
+    
+    
+    
+    
+    
+    
+    <script>
+    // Show popup after 2 seconds
+    setTimeout(function () {
+        popup.style.opacity = 1;
+    }, 1300);
+    
+    // Hide popup after 4 seconds
+    setTimeout(function () {
+        popup.style.opacity = 0;
+    }, 4000);
+    </script>
+    
+    
+    <div class="popup" id="popup">
+        <div class="stars">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star-grey"></div>
+        </div>
+        <div class="text">23.618 Bewertungen</div>
+    </div>
+
+
+
+
+
+
+
+
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
