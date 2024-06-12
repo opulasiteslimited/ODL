@@ -56,7 +56,6 @@
             margin-top: 30px;
             font-size: smaller;
             margin-bottom: 37px;
-           
         }
 
         .info-card p {
@@ -89,7 +88,7 @@
             border-radius: 16px;
             margin-top: 14px;
             font-size: 16px;
-            cursor: pointer;
+            cursor: not-allowed;
         }
 
         .confirm-button:hover {
@@ -137,16 +136,13 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
- 
 
-.form-group{
-    font-size: smaller;
-   
-    
-}
- 
-input[type="text"], input[type="email"], select {
-    margin-top: 7px;
+        .form-group{
+            font-size: smaller;
+        }
+
+        input[type="text"], input[type="email"], select {
+            margin-top: 7px;
             width: 255px;
             padding: 4px;
             border: 1.2px solid #9a9999;
@@ -154,14 +150,10 @@ input[type="text"], input[type="email"], select {
             font-size: 14px;
         }
 
-
-
-
-.r{
-    font-size: smaller;
-    color: red;
-}
-
+        .r{
+            font-size: smaller;
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -175,13 +167,12 @@ input[type="text"], input[type="email"], select {
             method="POST">
             <div class="form-group">
                 <label for="email">E-Mail Bestätigen: </label>
-
                 <input type="email" id="email" name="email" required>
             </div>
             
             <div class="infos">
                 <p>Warenkorb Summe: <span id="cart-sum">€29.99</span></p>
-                <p class="r">  <u> Der Mindestbestellwert beträgt 29,99Euro  </u> </p>
+                <p class="r"><u>Der Mindestbestellwert beträgt 29,99 Euro</u></p>
                 <p>Versandkostenpauschale:</p>
                 <select id="shipping-method">
                     <option value="5.00">DHL Normal (versichert) - €4.95</option>
@@ -193,7 +184,7 @@ input[type="text"], input[type="email"], select {
             </div>
         </div>
      
-        <button class="confirm-button" id="confirm-button">Bestätigen</button>
+        <button class="confirm-button" id="confirm-button" disabled>Bestätigen</button>
         <div class="continue-to-payment">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
                 
@@ -216,6 +207,7 @@ input[type="text"], input[type="email"], select {
             const confirmButton = document.getElementById('confirm-button');
             const loadingOverlay = document.getElementById('loading-overlay');
             const orderinfoElement = document.getElementById('orderinfo');
+            const emailInput = document.getElementById('email');
 
             // Assuming these values come from checkout1.html
             const formData = {
@@ -249,17 +241,28 @@ input[type="text"], input[type="email"], select {
 
             shippingMethodElement.addEventListener('change', updateTotalSum);
 
+            function toggleConfirmButton() {
+                confirmButton.disabled = !emailInput.value;
+                confirmButton.style.cursor = emailInput.value ? 'pointer' : 'not-allowed';
+            }
+
+            emailInput.addEventListener('input', toggleConfirmButton);
+
             confirmButton.addEventListener('click', () => {
-                loadingOverlay.style.display = 'flex';
-                setTimeout(() => {
-                    window.location.href = 'checkout3.html';
-                }, 1500);
+                if (!confirmButton.disabled) {
+                    loadingOverlay.style.display = 'flex';
+                    setTimeout(() => {
+                        window.location.href = 'checkout3.html';
+                    }, 1500);
+                }
             });
 
             // Initial population and calculation
             populateOrderInfo();
             updateTotalSum();
+            toggleConfirmButton();
         });
     </script>
 </body>
 </html>
+

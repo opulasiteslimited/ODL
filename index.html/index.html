@@ -43,6 +43,8 @@
             color: rgb(2, 2, 2);
             text-align: center;
             padding: 5px 10px;
+            margin-left: 20px;
+            margin-right: 20px;
         }
 
         .icon-container {
@@ -364,6 +366,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const productCards = document.querySelectorAll('.product-card');
+           
             const loadingScreen = document.querySelector('.loading-screen');
             const accountIcon = document.getElementById('accountIcon');
             const menu = document.getElementById('menu');
@@ -496,6 +499,7 @@
 <style>
 
     .popup {
+        
         position: fixed;
         top: 60px;
         right: 20px;
@@ -508,6 +512,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
+        flex-direction: column;
         opacity: 0;
         transition: opacity 0.5s ease-in-out;
     }
@@ -520,18 +525,21 @@
     .popup .star {
         width: 26px;
         height: 26px;
-        border-radius: 6px;
-        background-color: #3CB371;
+        margin-left: 2.4px;
+        border-radius: 3px;
+        background-color: #49b278;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-bottom: 5px;
     }
     
  
     .popup .star-grey {
         width: 26px;
         height: 26px;
-        border-radius: 6px;
+        margin-left: 2.4px;
+        border-radius: 3px;
         background-color: #bcbcbc;
         display: flex;
         align-items: center;
@@ -546,6 +554,8 @@
     .popup .text {
         margin-left: 10px;
         font-size: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
     }
     </style>
     
@@ -557,18 +567,22 @@
     
     
     <script>
+
+
+
     // Show popup after 2 seconds
     setTimeout(function () {
         popup.style.opacity = 1;
-    }, 1300);
+    }, 600);
     
     // Hide popup after 4 seconds
     setTimeout(function () {
         popup.style.opacity = 0;
-    }, 4000);
+    }, 3700);
     </script>
     
     
+   <button class="popup-btn" onclick="window.location.href = 'trustpilot.html';">
     <div class="popup" id="popup">
         <div class="stars">
             <div class="star"></div>
@@ -578,8 +592,10 @@
             <div class="star-grey"></div>
         </div>
         <div class="text">23.618 Bewertungen</div>
+        <div class="tp"><strong>Trustpilot</strong></div>
     </div>
 
+</button>
 
 
 
