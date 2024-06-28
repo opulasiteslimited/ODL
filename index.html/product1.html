@@ -214,7 +214,11 @@
             overflow-x: hidden;
         }
 
-        @media (max-width: 600px){}
+        @media (max-width: 600px){
+            body{
+                max-width: 540px;
+            }
+        }
 
 
         h6{
@@ -378,7 +382,7 @@
             loadingScreen.style.display = 'flex';
             setTimeout(() => {
                 window.location.href = 'checkout1.html';
-            }, 810); // 3 Sekunden Ladezeit simuliert
+            }, 320); // 3 Sekunden Ladezeit simuliert
         }
 
         function updatePrice() {
